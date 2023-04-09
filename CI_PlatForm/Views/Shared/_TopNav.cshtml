@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+     <div class="container d-flex">
+          <nav class="navbar navbar-expand-lg py-1">
+              <div class="container">
+                        <a class="navbar-brand" href="#">
+                                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                 
+                                </a>
+
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                      
+                                        <li class="nav-item">
+                                            <a class="nav-link"  asp-action="VolunteeringStory" asp-controller="Mission">Stories</a>
+                                        </li>
+                                       
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Policy <span><img src="/Images/CI Platform Assets/drop-down.png" alt="Profile-dropdown" /></span>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                       
+                     <div class="container">
+                      <nav class="navbar navbar-expand-lg py-1 position-absolute top-0 end-0" style="margin-right: 25px;margin-top: 9px;">
+                            <div class="nav-item d-flex">
+                                <form>
+                                    <div class="form-group">
+                                        <i class="bi bi-search" id="search" href="#"></i>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </form>
+                                <div class="nav-item dropdown">
+
+                                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-bell py-1"></i> &nbsp;&nbsp;&nbsp;
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                                <div class="nav-item dropdown">
+
+                                    <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="/Images/CI Platform Assets/user-img.png"
+                                            alt="Error" height="25" width="25" style="border-radius: 15px;">
+                                        <span id="profile">@ViewBag.sessionValue</span>
+                                        <img src="/Images/CI Platform Assets/drop-down.png"
+                                            alt="Profile-dropdown" id="Profile-dropdown" />
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                        <li><a class="dropdown-item" asp-action="UserDetail" asp-controller="Mission">User Info</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                        </div>
+                      </div>
+}

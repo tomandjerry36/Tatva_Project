@@ -1,0 +1,211 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    
+    @Html.Partial("_TopNav")
+    <div class="container">
+    <div class = "row">
+    <div class = "col-lg-3 col-md-3 col-12 text-center">
+    <div class="border h-50 p-5">
+    <img src="/Images/CI Platform Assets/user-img-large.png" class="border rounded-circle text-center img-fluid">
+    </div>
+    </div>
+    <div class = "col-lg-9 col-md-9 col-12">
+    <div class = "row p-3">
+    <h2><bold>Basic Information</bold></h2>
+    <hr>
+    </div>
+    
+    <div class="row p-3">
+    <div class="col-lg-6 col-md-6 col-12">
+     <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+    </div>
+    </div>
+    <div class = "col-lg-6 col-md-6 col-12">
+     <div class="form-group">
+    <label for="exampleInputEmail1">Surname</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your surname">
+    </div>
+    </div>
+    </div>
+    <div class = "row p-3">
+    <div class = "col-lg-6 col-md-6 col-12">
+    <div class="form-group">
+    <label for="exampleInputEmail1">EmployeeId</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your employee id">
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Manager</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your manager detail">
+    </div>
+    </div>
+    </div>
+    <div class = "row p-3">
+    <div class="col-lg-6 col-md-6 col-12">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your employee id">
+    </div>
+    </div>
+    <div class = "col-lg-6 col-md-6 col-12">
+    <div class="form-group">
+    <label for="exampleInputEmail1">Department</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your department name">
+    </div>
+    </div>
+    </div>
+    <div class="row p-3">
+    <div class = "col-12">
+     <div class="form-group">
+    <label for="exampleFormControlTextarea1">My Profile</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your comments..."></textarea>
+  </div>
+  </div>
+    </div>
+    <div class="row p-3">
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Why I Volunteer?</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter your comments..."></textarea>
+  </div>
+  </div>
+  <div class="row p-3">
+   <h2><bold>Address Information</bold></h2>
+   <hr>
+  </div>
+  <div class="row">
+  <div class = "col-lg-6 col-md-6 col-12">
+   <div class="form-group">
+    <label for="exampleInputEmail1">City</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your city">
+    </div>
+    </div>
+    <div class = "col-lg-6 col-md-6 col-12">
+    <label for="dropdownMenuButton">Country</label>
+    <div class="dropdown" >
+      <select class="dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:34px;border-radius:5px;border-color:lightgray;">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <option class="dropdown-item" href="#" selected>Select your country</option>
+        @foreach(var objCountry in @ViewBag.countryList)
+         {
+          <option class="dropdown-item" href="#"  id="@objCountry.CountryId">@objCountry.CountryName</option> 
+          }
+      </div>
+    </select>
+    </div>
+     </div>
+      </div>
+     <div class="row p-3">
+   <h2><bold>Professional Information</bold></h2>
+   <hr>
+  
+    </div>
+    <div class="row p-3">
+    <div class="col-lg-6 col-md-6 col-12">
+    <label for="dropdownMenuButton">Availability</label>
+    <div class="dropdown" >
+      <select class="dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:34px;border-radius:2px;border-color:lightgray;">
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <option class="dropdown-item" href="#" selected>Select your availability</option>
+          <option class="dropdown-item" href="#">Monthly</option> 
+          <option class="dropdown-item" href="#">Weekly</option>
+          <option class="dropdown-item" href="#">Daily</option>
+          
+      </div>
+    </select>
+    </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-12">
+     <div class="form-group">
+    <label for="exampleInputEmail1">LinkedIn</label>
+    <input type="url" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter linkedIn URL">
+    </div>
+    </div>
+    </div>
+    <div class="row p-3">
+     <h2><bold>My Skills</bold></h2>
+   <hr>
+   </div>
+   <div class="row p-3">
+   <div class=" col-12">
+    <div class="form-group">
+    
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>Botany</option>
+      <option>Archeology</option>
+      <option>Anthropolgy</option>
+      <option>Computer Science</option>
+      <option>Enviornmental Science</option>
+    </select>
+  </div>
+  </div>
+   </div>
+  <div class="row p-3">
+  <div class="col-3">
+  <button type="button" class="btn btn-outline-secondary border rounded-pill">Add Skills</button>
+  </div>
+  <div class = "col-9 text-end">
+   <button type="button" class="btn btn-outline-secondary border rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</button></div>
+   <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <div class="row p-3">
+             <div class="form-group">
+                
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter old Password">
+                </div>
+              </div>
+              <div class="row p-3">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new Password">
+                </div>
+              </div>
+              <div class="row p-3">
+              <div class="form-group">
+                
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter confirm Password">
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-warning">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class ="row p-3">
+  <div class="col-12 text-end">
+  <button type="button" class="btn btn-outline-warning border rounded-pill">Save</button></div>
+  </div>
+   </div>
+   </div>
+    </div>
+ <div class="container">
+    <footer class="text-lg-start">
+       <div class="p-3">
+         <a asp-action="Privacy" asp-controller="Home" class="text-decoration-none">Privacy Policy</a>
+            </div>
+         </footer>
+     </div>
+    
+   
+  
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" 
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                                    crossorigin="anonymous"></script>
+ }

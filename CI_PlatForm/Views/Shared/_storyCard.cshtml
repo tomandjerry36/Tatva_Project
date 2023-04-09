@@ -1,0 +1,43 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+          <div class="row p-3">
+              @foreach(var storyCard in @ViewBag.storyInfo)
+              {
+                           <div class="col-lg-4 col-md-6 col-12">  
+                                                <div class="card">
+                                                     <div class="card">
+                                                         <div class="d-flex flex-column justify-content-center align-items-center">
+                                                             <div class="bg-black">
+                                                                <img src= "@storyCard.storyImage" class="cardImg position-relative w-100 p-0" /> 
+                                                               </div>
+                                                        <a asp-action="StoryDetail" asp-route-id="@storyCard.StoryId" asp-controller="Mission" class="position-absolute">
+                                                           <button class="btn btn-outline-light rounded-pill">View details<i class="bi bi-arrow-right"></i></button>
+                                                        </a>
+                                                          </div>
+                                                          <div class="card img-overlay d-flex align-items-center justify-content-center" >
+                                                      
+                                                              <div class="rounded-pill bg-light position-absolute text-center p-2 small">  @storyCard.Type</div>
+                                                        
+                                                          </div>
+
+                                                    <div class="card-body">
+                                                        <h5 class="card-title"> @storyCard.Title</h5>
+                                                        <p class="card-text"> @storyCard.Description</p>
+                                                    </div>
+                                                    <div class="row p-2">
+                                                        <div class="col-lg-3 col-md-3 col-3 text-center">
+                                                            <img src="/Images/CI Platform Assets/@storyCard.Avatar" class="rounded-circle img-thumbnail"/>
+                                                        </div>
+                                                        <div class="col-lg-9 col-md-9 col-9 d-flex align-items-center">
+                                                            @storyCard.UserName   
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                }
+                                                </div>
+     }                                         

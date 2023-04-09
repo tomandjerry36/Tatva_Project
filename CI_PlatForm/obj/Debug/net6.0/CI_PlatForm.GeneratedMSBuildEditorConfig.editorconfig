@@ -1,0 +1,113 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CI_PlatForm
+build_property.RootNamespace = CI_PlatForm
+build_property.ProjectDir = D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/MissionVolunteering.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxNaXNzaW9uVm9sdW50ZWVyaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/PlatformLanding.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxQbGF0Zm9ybUxhbmRpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/shareStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxzaGFyZVN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/StoryDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxTdG9yeURldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/UserDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxVc2VyRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Mission/VolunteeringStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWlzc2lvblxWb2x1bnRlZXJpbmdTdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_Comment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Db21tZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_gridView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9ncmlkVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_listView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9saXN0Vmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_MissionNotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NaXNzaW9uTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_RecentVolunteer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWNlbnRWb2x1bnRlZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_SecondNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWNvbmROYXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_storyCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9zdG9yeUNhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_TopNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BOYXYuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/User/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/User/Registration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/User/Reset.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Tatvasoft Project files/(Nan-3)_CI_PlatForm-master - Copy/CI_PlatForm-master/CI_PlatForm/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-y280axyv25

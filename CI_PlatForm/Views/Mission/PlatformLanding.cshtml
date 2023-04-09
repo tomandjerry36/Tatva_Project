@@ -1,0 +1,280 @@
+﻿@model CI_PlatForm.Entities.Models.Country
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <script src="~/js/site.js"></script>
+   
+                      @Html.Partial("_TopNav")
+                     
+                        <hr />
+                       
+
+                    @Html.Partial("_SecondNav")
+                
+                    <hr />
+                    
+                                  <div class="container">
+                                    
+                                        <div class="row">
+                                            <div class="col-lg-9 col-md-9 col-6">Explore @ViewBag.totalMission Missions</div>
+                                            <div class="col-lg-3 col-md-3 col-6">
+
+                                                <div class="d-flex justify-content-end">
+                                               
+                                                           <select aria-label="Default select example" id="sortBy" onchange="searchMission()" class="form-select border-0" style="box-shadow: none;">
+                                                            <option selected>Sort By</option>
+                                                            <option value="1">Latest First</option>
+                                                            <option value="2">Oldest First</option>
+                                                            <option value="3">Sort by Deadline</option>
+                                                            <option value="4">Sort by lowest available Seats</option>
+                                                            <option value="5">Sort by highest available Seats</option>
+                                                            <option value="6">Sort by favourite mission</option>
+                                                         
+                                                        </select>
+
+                                                 
+
+                                                    <i class="d-sm-none d-md-block bi bi-list" id="list"></i>&nbsp;&nbsp;
+                                                    <i class="d-sm-none d-md-block bi bi-grid" id="grid"></i>
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                            //--------------------------Cards----------------------------------------------------------     
+                                    <div class="container pt-3">
+                                      <div class="gridItem">
+                                                <div class="row" id="mission">
+                                                   @Html.Partial("_gridView")
+                                    
+                                                </div>
+                                       </div>   
+                                      <div class="listItem" id="missionList">
+                                        @Html.Partial("_listView")
+                          
+                                     
+                                      </div>
+                                      
+                                    </div>
+                   
+                    <script>
+                    @*----------------------------list-grid toggle---------------------------------*@
+                                    $('.listItem').hide();
+                                    $('#grid').click(function () {
+                                        $('.gridItem').show();
+                                        $('.listItem').hide();
+                                    })
+                                    $('#list').click(function () {
+                                        $('.listItem').show();
+                                        $('.gridItem').hide();
+                                    })
+
+                    @*--------------------------City AJAX------------------------------------------*@
+
+
+                    function searchMission(paging){
+                                 console.log("search");
+                                 var search = $('input[name="search"]').val();
+                                 var countries =[];
+                                 var sort = $('#sortBy').find(":selected").val();
+                                 var cities =[];
+                                 var themes =[];
+                                 var skills =[];
+                                 if(paging == undefined){
+                                     paging = 1;
+                                 }
+        
+                                 $('input[name="country"]:checked').each(function(){
+                                     countries.push(this.id);
+                                 });
+                                 $('input[name="city"]:checked').each(function(){
+                                     cities.push(this.id);
+                                 });
+                                 $('input[name="theme"]:checked').each(function(){
+                                     themes.push(this.id);
+                                 });
+                                 $('input[name="skill"]:checked').each(function(){
+                                     skills.push(this.id);
+                                 });
+
+                                 
+                                 $.ajax({
+                                     url:"/Mission/Search",
+                                     method: "POST",
+                                     data:{
+                                         "search": search,
+                                         "countries": countries,
+                                         "cities": cities,
+                                         "themes": themes,
+                                         "skills": skills,
+                                          "sort" : sort,
+                                          "paging" : paging
+                                     },
+                                     success:function(data){
+                                        $("#mission").html(data);
+                                     },
+                                     error: function(request,error){
+                 
+                                         console.log(error);
+                                     }
+                                 })
+
+                                
+                                  $.ajax({
+                                     url:"/Mission/SearchList",
+                                     method: "POST",
+                                     data:{
+                                         "search": search,
+                                         "countries": countries,
+                                         "cities": cities,
+                                         "themes": themes,
+                                         "skills": skills,
+                                          "sort" : sort,
+                                          "paging" : paging
+                                     },
+                                     success:function(data){
+                                        $("#missionList").html(data);
+                                     },
+                                     error: function(request,error){
+                 
+                                         console.log(error);
+                                     }
+                                 })
+                             };
+
+
+                             function GetCity()
+                                           {
+                                            var countryId= [];
+                                            $('input[name="country"]:checked').each(function(){
+                                            countryId.push(this.id);
+                                            });
+                                           
+                                            $.ajax({
+                                            url:"/Mission/GetCity",
+                                            method: "Post",
+                                            data: {
+                                            "countryId":countryId
+                                            },
+                                            success:function(data){
+                                            data = JSON.parse(data);
+                                            $("#selectCityList").empty();
+                                            data.forEach((name)=> {
+                                            document.getElementById("selectCityList").innerHTML += `
+
+                                            <li>
+                                            <div class="form-check dropdown-item px-3">
+                                            <input class="form-check-input mx-auto" name="city" type="checkbox" value="${name.Name}"
+                                            id="${name.CityId}" />
+                                            <label class="form-check-label ps-2" for="${name.CityId}">
+                                            ${name.Name}
+                                            </label>
+                                            </div>
+                                            </li>
+                                             `;
+                                            })
+                                            },
+                                            error: function(request,error){
+                                            console.log(error);
+                                            }
+                                            })
+                                            };
+                                       function AddToRecent(missionId)
+                                        {
+                                
+                                        $.ajax({
+                                        url:"/Mission/AddToRecentVolunteer",
+                                        method: "POST",
+                                        data:
+                                            {
+                                            
+                                            missionId:missionId
+                                            },
+                                            success:function(@*data*@ missions)
+                                            {
+
+                                            console.log(@*"success"*@missions)
+                                            if(missions == true){
+                                                console.log('addofav output:'.missions);
+                                             $("#volunteer-status").html("Request sent for approvel");
+                                             $("#volunteer-status").css("color","green");
+                                            }
+                                            }
+                                            })
+                                }
+                                            
+                                           
+                                            
+                                </script>
+
+                        <div class = "container py-5">
+
+                        <nav aria-label="Page navigation example">
+                          <ul class="pagination justify-content-center" onchange="searchMission()">
+                            <li class="page-item">
+                              <a class="page-link btn pageBtn" href="#" aria-label="Previous" onclick="searchMission(1)">
+                                <span aria-hidden="true">&laquo;</span>
+                             </a>
+                            </li>
+                           
+
+                @{
+                    double totalpages = ViewBag.Totalpages;
+
+                    for(int i = 1; i<= totalpages; i++)
+                    {
+                        @if(i == ViewBag.pg_no)
+                        {
+                            <li class="page-item">
+                            <a class="page-link btn pageBtn active" onclick="searchMission(@i)">@i</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="page-item">
+                            <a class="page-link btn pageBtn" onclick="searchMission(@i)">@i</a>
+                            </li>
+                        }
+                    }
+                
+                     }       
+                            <li class="page-item">
+                              <a class="page-link btn pageBtn" href="#" aria-label="Next" onclick="searchMission(@ViewBag.Totalpages)">
+                                <span aria-hidden="true">&raquo;</span>
+                           
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                        </div>
+                    <div class="container">
+                    <footer class="text-lg-start">
+                     
+                      <div class="p-3">
+                       <a asp-action="Privacy" asp-controller="Home" class="text-decoration-none">Privacy Policy</a>
+                     
+                      </div>
+                    
+                    </footer>
+                
+                    </div>
+                    
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+                    @*<script type="text/javascript" language="javascript">
+                        function DisableBackButton() {
+                            window.history.forward();
+                        }
+                        DisableBackButton();
+                        window.onload = DisableBackButton;
+                        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton(); }
+                        window.onunload = function () { void (0); };
+                    </script>*@
+                    
+
+     
+}

@@ -1,0 +1,651 @@
+﻿
+@*@model CI_PlatForm.Entities.ViewModel.Card*@
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+   
+
+
+
+
+                  @Html.Partial("_TopNav")
+                     <hr />
+                    
+                    
+       //--------------------------------Slider----------------------------------------------------------------------
+                  
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6" style="height:fit-content;">
+                            
+
+                                    <div class="w3-content" style="max-width:1200px">
+                                      <img class="mySlides" src="/Images/CI Platform Assets/Grow-Trees-On-the-path-to-environment-sustainability-1.png" style="width:100%;display:none">
+                                      <img class="mySlides" src="/Images/CI Platform Assets/Animal-welfare-&-save-birds-campaign-1.png" style="width:100%">
+                                      <img class="mySlides" src="/Images/CI Platform Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png" style="width:100%;display:none">
+
+                                      <div class="w3-row-padding w3-section">
+                                        <div class="w3-col s4">
+                                          <img class="demo w3-opacity w3-hover-opacity-off" src="/Images/CI Platform Assets/Grow-Trees-On-the-path-to-environment-sustainability-1.png" style="width:100%;cursor:pointer" onclick="currentDiv(1)">
+                                        </div>
+                                        <div class="w3-col s4">
+                                          <img class="demo w3-opacity w3-hover-opacity-off" src="/Images/CI Platform Assets/Animal-welfare-&-save-birds-campaign-1.png" style="width:100%;cursor:pointer" onclick="currentDiv(2)">
+                                        </div>
+                                        <div class="w3-col s4">
+                                          <img class="demo w3-opacity w3-hover-opacity-off" src="/Images/CI Platform Assets/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png" style="width:100%;cursor:pointer" onclick="currentDiv(3)">
+                                        </div>
+                                      </div>
+                                    </div> 
+                                      </div> 
+        
+                 @*-------------------------------------Description-------------------------------------------------*@       
+
+                                      <div class="col-lg-6">
+                                          <div class="container">
+                                         
+                                             <div>
+                                              <h4>@ViewBag.cardData.Title</h4>
+                                             
+                                              </div>
+                                               
+                                              <div><p class="card-text">@ViewBag.cardData.ShortDescription</p></div>
+                                              <hr style="margin-top:35px; opacity:1"/>
+                                              <div class="trees">    
+                                              @if (@ViewBag.cardData.MissionType == false)
+                                                    {
+                                                        <label>@ViewBag.cardData.GoalObjectiveText</label>
+                                                    }
+                                                    else
+                                                    {
+                                                        <label>From @ViewBag.cardData.StartDate.ToString("dd/MM/yyyy") until @ViewBag.cardData.EndDate.ToString("dd/MM/yyyy")</label>
+                                                    }
+                                                    </div>
+                                              <div class="row py-2">
+                                                  <div class="col-lg-6 col-md-6 col-6 d-flex justify-content-center">
+                                                 <i class="bi bi-person-check py-1"></i>&nbsp;&nbsp;
+                                                         <div>@ViewBag.cardData.Avaibility
+                                                               <div>Seats left</div>
+                                                                </div>
+                                                 </div>
+                                                  @if (@ViewBag.cardData.MissionType == false)
+                                                    {
+                                                        <div class="col-lg-6 col-md-6 col-6 d-flex justify-content-center">
+                                                        <div><img src="/Images/CI Platform Assets/achieved.png" alt="" style="height:20px;width:20px">&nbsp;&nbsp;</div>
+                                                        <div><div class="progress">
+                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div>@ViewBag.cardData.GoalValue achieved</div>
+                                                        </div>
+                                                        </div>
+                                                    }
+                                                    else
+                                                    {
+                                                    <div class="col-lg-6 col-md-6 col-6">
+                                                    <div>@ViewBag.cardData.EndDate.ToString("dd/MM/yyyy")</div>
+                                                    <div>Deadline</div></div>
+                                                    }
+                                                </div>
+                                               
+                                               
+                                                <hr />
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-12">
+                                <button type="submit" class="btn btn-outline-secondary w-100 rounded-pill" onclick="AddMissionToFav(@ViewBag.cardData.MissionId)">
+                                    <i class="bi bi-heart" id="addtofav"></i>&nbsp;<span class="small">Add to Favourite</span>
+                                </button>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-12 ">
+                                <button type="submit" class="btn rounded-5 " style="border-color: black;" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="/Images/CI Platform Assets/add1.png"> Recommend to a Co-Worker</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Co-Worker List</h5>
+
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                                            </div>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Select</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var worker in @ViewBag.userDetails)
+                                                    {
+                                                        <tr>
+                                                            <td>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input"  name="volunteers" type="checkbox" value="@worker.FirstName" id="@worker.UserId" />
+                                                                    <input type="hidden" id="uid" value="@worker.UserId" />
+                                                                </div>
+                                                            </td>
+                                                            <td>@worker.FirstName @worker.LastName</td>
+                                                            <td>@worker.Email</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="3">
+                                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                            <button type="submit" onclick="sendInvitation(@ViewBag.cardData.MissionId)" class="btn btn-success">Send Invitation</button>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                                              <hr style="opacity:1;"/>
+                                              <div class="star">
+                                               @for (var i = 0; i < (@ViewBag.getRating); i++)
+                                                 {
+                                                 <label class="rtcolor checked" style="color: #F8D441; border-color: black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">&#9733;</label>
+                                                 }  
+                                                 @for (int i = (@ViewBag.getRating) + 1; i <= 5; i++)
+                                                 {
+                                                 <label class="rtcolor text-black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">☆</label>
+                                                 }       
+                                              </div>
+                                       <div class="row py-2">
+                                           <div class="col-lg-3 col-md-6 col-6 border">
+                                               <i class="bi bi-geo-alt"></i>
+                                               <div class="small py-2">City</div>
+                                                    <p class="small">@ViewBag.cardData.CityName</p></div>
+                                           <div class="col-lg-3 col-md-6 col-6 border">
+                                               <i class="bi bi-globe"></i>
+                                               <div class="small py-2">Theme</div>
+                                               <p class="small">@ViewBag.cardData.Theme</p>
+                                           </div>
+                                           <div class="col-lg-3 col-md-6 col-6 border">
+                                               <i class="bi bi-calendar3"></i>
+                                               <div class="small">Date</div>
+                                               <p class="small">@ViewBag.cardData.StartDate.ToString("dd/MM/yyyy")</p>
+                                           </div>
+                                           <div class="col-lg-3 col-md-6 col-6 border">
+                                               <i class="bi bi-people"></i>
+                                               <div class="small py-2">Organisation</div>
+                                               <p class="small">@ViewBag.cardData.OrganizationName</p>
+                                           </div>
+                                       </div>
+                                      
+                                     <div class="text-center py-1">
+                                     @if(@ViewBag.checkApplied == true)
+                                     {
+                                        <a class="btn btn-outline-warning border rounded-pill disabled"  onclick="AddToRecent(@ViewBag.cardData.MissionId, @ViewBag.userId)">Already applied!! &nbsp;<img src="/Images/CI Platform Assets/right-arrow.png"></a>
+                                        }
+                                        else
+                                        {
+                                            <a class = "btn btn-outline-warning border rounded-pill" id="apply" onclick="AddToRecent(@ViewBag.cardData.MissionId, @ViewBag.userId)"><span id="applied">Apply Now</span></a>
+                                        }
+                                    </div>
+                                  
+                                <p id="volunteer-status" class="text-center"></p>
+                            
+                                 </div>
+                             </div>
+                        </div>
+                        </div>
+                       
+              @*--------------------------------------------Introduction---------------------------------------------------------------------------------------*@   
+                    
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-lg-8">
+                            <div class="container">
+                             <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Mission</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Organization</button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Comments</button>
+                              </li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                   <div class="container">
+                                      <h3 class="py-2">Introduction</h3>
+                                      <p>@ViewBag.cardData.Description</p>
+                                      <h3 class="py-2">Challenge</h3>
+                                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, unde. Fugiat ex  debitis, ad animi repellendus architecto! Ipsum quas, neque itaque sint incidunt cupiditate velit ut aperiam asperiores nemo voluptates, rem ipsam veniam! Fugiat rerum a nostrum repudiandae, error nesciunt laudantium. Odit adipisci tenetur quos modi doloremque cupiditate dignissimos quibusdam?</p>
+                                      <h3 class="py-2">Documents</h3>
+                                      <div class="row">
+                                          <div class="col-lg-4 col-md-4 col-12 py-2">
+                                          <button type="button" class="btn btn-outline-secondary">
+                                              <i class="bi bi-file-earmark-pdf"></i>lorem-ipsum.pdf
+                                          </button></div>
+                                          <div class="col-lg-4 col-md-4 col-12 py-2">
+                                            <button type="button" class="btn btn-outline-secondary">
+                                            <i class="bi bi-filetype-doc"></i>s_accusamus.doc
+                                            </button></div>
+                                          <div class="col-lg-4 col-md-4 col-12 py-2">
+                                           <button type="button" class="btn btn-outline-secondary">    
+                                          <i class="bi bi-filetype-xls"></i>important_doc.xls
+                                          </button></div>
+
+                                      </div>
+                                  </div>
+                              </div>
+    @*--------------------------------------Challenges---------------------------------------------------------------------*@
+                              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                  <div class="container p-3">
+                                     @ViewBag.cardData.aboutOrganization 
+                                  </div>
+                              </div>
+
+    @*---------------------------------------------------Comments-----------------------------------------------------------*@   
+
+                 @Html.Partial("_Comment")
+    
+                         
+                             </div>
+                            
+                            </div>
+                        </div>
+       @*----------------------------------Information---------------------------------------------------*@
+                        <div class="col-lg-4 col-md-12 col-12">
+                            <div class="container py-2">
+                                <div class="border border-secondary p-3">
+                                    <div class="mx-2 py-1">Information</div>
+                                     <hr class="hr"/>
+                                   <div class="row">
+                                       <div class="col-3 text-center">Skills</div>
+                                       <div class="col-9">@ViewBag.getSkill</div>
+                                   </div>
+                                   <hr class="hr"/>
+                                    <div class="row">
+                                       <div class="col-3 text-center">Days</div>
+                                       <div class="col-9">Weekend only</div>
+                                   </div>
+                                   <hr />
+                                    <div class="row">
+                                       <div class="col-3 text-center">Ratings</div>
+                                       <div class="col-9">
+                                            <div class="d-flex">
+                                               
+                                                 
+                                                 @for (var i = 0; i < (@ViewBag.getRating); i++)
+                                                 {
+                                                 <label class="rtcolor checked" style="color: #F8D441; border-color: black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">&#9733;</label>
+                                                 }  
+                                                 @for (int i = (@ViewBag.getRating) + 1; i <= 5; i++)
+                                                 {
+                                                 <label class="rtcolor text-black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">☆</label>
+                                                 }      
+                                                     
+                                              </div>
+                                              <span>(by 125 volunteers)</span>
+                                       </div>
+                                   </div>
+                                </div>                             
+                            </div>
+                       @*-----------------------------------------------Recent volunteer------------------------------------------*@     
+                       
+                        <div class="container my-2 ">
+                                <div class="border border-secondary">
+                                    <div class="mx-2 py-1">Recent Volunteeres</div>
+                                   
+                                 @Html.Partial("_RecentVolunteer")
+                                     <div class="row p-0">
+                                         
+                                     <nav aria-label="Page navigation example border-black">
+                                      <ul class="pagination">
+                                        <li class="page-item col-lg-1 col-md-1 col-1">
+                                          <a class="page-link text-black" href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                              </a>
+                                        </li>
+                                        <li class="page-item col-lg-10 col-md-10 col-10"><a class="page-link text-black text-center" href="#"><span class="small">1-8 of 25 Recent Volunteers</span></a></li>
+                                       
+                                        <li class="page-item col-lg-1 col-md-1 col-1">
+                                          <a class="page-link text-black" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                      </ul>
+                                    </nav>
+                                   </div>
+                                     </div>
+                                    </div>
+                            </div>
+                            </div>
+                            </div>
+               @*--------------------------------Related mission--------------------------------------------------*@
+                            <div class="container">
+                        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                        <h3 class="container py-2 text-center">
+                            Related Missions
+                        </h3>
+                        <div class="container py-2">
+                            <div class="row">
+                           @foreach(var cards in ViewBag.relatedMission)
+                             {
+                              <div class="col-lg-4 col-md-6 col-12">
+                                                <div class="card">
+                                                    <div class="card">
+                                                         <img src="/Images/CI Platform Assets/@cards.MediaName" class="position-relative container-fluid" />
+                                                    <div class="card-img-overlay d-flex flex-column align-items-end">
+                                                          <div>
+                                                              <button type="button" class="bg-dark text-white bg-opacity-bg-opacity-50"><i class="bi bi-geo-alt"></i><span id="@cards.CityId">@cards.CityName</span></button>
+                                                          </div>
+                                                          <div>
+                                                              <button type="button" class="bg-dark text-white bg-opacity-bg-opacity-50"><i class="bi bi-heart"></i></button>
+                                                         </div>
+                                                         <div>
+                                                              <button type="button" class="bg-dark text-white bg-opacity-bg-opacity-50"><i class="bi bi-people"></i></button>
+                                                         </div>
+                                                    </div>
+                                                    <div class="card img-overlay d-flex align-items-center justify-content-center" >
+                                                        <div class="rounded-pill bg-light position-absolute text-center p-2 small" id="@cards.MissionId">@cards.Theme</div>
+                                                    </div>
+                                                </div>
+                                                    <div class="card-body">
+                                                        <h3 class="card-title"> @cards.Title </h3>
+                                                        <p class="card-text"> @cards.ShortDescription</p>
+                                                        <div class="row">
+
+                                                            <div class="col-lg-6 col-md-6 col-6 small"> @cards.OrganizationName</div>
+                                                            <div class="col-lg-6 col-md-6 col-6 d-flex">
+                                                               
+                                                                   @for (var i = 0; i < (@ViewBag.getRating); i++)
+                                                                     {
+                                                                     <label class="rtcolor checked" style="color: #F8D441; border-color: black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">&#9733;</label>
+                                                                     }  
+                                                                     @for (int i = (@ViewBag.getRating) + 1; i <= 5; i++)
+                                                                     {
+                                                                     <label class="rtcolor text-black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">☆</label>
+                                                                     }       
+                                                                 
+                                                               
+                                                            </div>
+                                                         
+
+                                                        </div>
+                                                        <div class="row py-4">
+                                                                <div class="row d-flex align-items-center justify-content-center position-relative">
+                                                               <div class="border rounded-pill m-auto p-1 position-absolute small" style="width:fit-content;background-color:white;">From @cards.StartDate.ToString("dd/MM/yyyy") until @cards.EndDate.ToString("dd/MM/yyyy")</div>
+                                                              </div>
+                                                               
+                                                                   <div class="row pt-4 pb-3">
+                                                               
+                                                                    <div class="col-lg-6 col-md-6 col-6 d-flex">
+
+                                                                        <div><i class="bi bi-person-check py-1"></i>&nbsp;&nbsp;</div>
+                                                                        <div class="small">@cards.Avaibility
+                                                                            <div class="small">Seats left</div>
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                      @if (@cards.MissionType == false)
+                                                                        {
+                                                                    <div class="col-lg-6 col-md-6 col-6 d-flex">
+                                                                   
+                                                                         <img src="/Images/CI Platform Assets/achieved.png">&nbsp;&nbsp;
+                                                                             
+                                                                        <div class="progress w-100">
+                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                        </div>
+                                                                                                                               
+                                                                            </div>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                           <div class="col-lg-6 col-md-6 col-6 d-flex">
+                                                                            <div><i class="bi bi-clock py-1"></i>&nbsp;&nbsp;</div>
+                                                                            <div class="small">@cards.EndDate.ToString("dd/MM/yyyy")
+                                                                                <div class="small">Deadline</div>
+                                                                                </div>
+                                                                               </div>
+                                                                                 
+                                                                            }
+                                                                     </div>
+                                                            
+                                                      
+                                                        <div class="text-center">
+                                                        <a asp-controller="Mission" asp-action="MissionVolunteering" asp-route-id = "@cards.MissionId">
+                                                            <button class="btn btn-outline-warning rounded-pill" type="submit">Apply<img src="/Images/CI Platform Assets/right-arrow.png" /></button>
+                                                            </a>
+                                                        </div>
+                                                   
+                                                    
+                                                    </div>
+                                                   
+                                                    </div>
+                                                    </div>
+                                                    </div>
+
+                                                }
+                                                
+                                              
+                                                </div>
+                                                </div>
+                                                </footer>
+                                                </div>
+                                            <div class="container">
+                                                  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                                                        <ul class="col-lg-6 col-md-6 list-unstyled d-flex nav">
+                                                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Privacy Policy</a></li>
+                                                            </ul>
+                                                   </footer>
+                           
+                                                    </div>
+                                                   
+                    <script>
+                    function currentDiv(n) {
+                      showDivs(slideIndex = n);
+                    }
+
+                    function showDivs(n) {
+                      var i;
+                      var x = document.getElementsByClassName("mySlides");
+                      var dots = document.getElementsByClassName("demo");
+                      if (n > x.length) {slideIndex = 1}
+                      if (n < 1) {slideIndex = x.length}
+                      for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                      }
+                      for (i = 0; i < dots.length; i++) {
+                        dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+                      }
+                      x[slideIndex-1].style.display = "block";
+                      dots[slideIndex-1].className += " w3-opacity-off";
+                    }
+
+                     function AddMissionToFav(missionId){
+          
+                       $.ajax({
+                        url: "/Mission/AddMissionToFav",
+                        method : "POST",
+
+                        data:{
+                           
+                            "missionId" : missionId
+                        },
+                        success: function (missions){
+                            console.log(missions)
+                            if (missions == true){
+                                console.log('addtofav output:'.missions);
+                                $('#addtofav').removeClass();
+                                $('#addtofav').addClass("bi bi-heart-fill");
+                                $('#addtofav').css("color","red");
+                            }
+                            else{
+                                $('#addtofav').css("color","black");
+                                $('#addtofav').removeClass();
+                                 $('#addtofav').addClass("bi bi-heart");
+                            }
+                        },
+                        error: function (request, error){
+                            console.log(error);
+                        }
+                    })
+                }
+                  function PostComment(missionId)
+                    {
+                     var comment = $("#user-comment").val();
+            
+                        if(comment == null || comment=="")
+                        {
+                             $("#comment-status").html("please enter the comment");
+                              $("#comment-status").css("color","red");
+                        }
+                        else
+                        {
+                            $.ajax({
+
+                            url:"/Mission/PostCommentInMission",
+                            method: "POST",
+
+                          data:
+                              {
+                                comment:comment,
+                                missionId:missionId
+                              },
+                          success:function(data)
+                             {
+                              $("#comment-status").html("comment sent for approvel");
+                              $("#comment-status").css("color","green");
+                             }
+                           })
+                        }
+                    }
+                      function sendInvitation(MissionId)
+                        {
+                            var VolunteerList = [];
+
+                             $('input[name="volunteers"]:checked').each(function(){
+                                 VolunteerList.push(this.id);
+                             });
+                            debugger
+                             $.ajax({
+                                 url:"/Mission/VolunteerList",
+                                 method: "POST",
+                                 data:{
+                                     "MissionId" : MissionId,
+                                     "Volunteers" : VolunteerList
+                                 },
+                                 success:function(data){
+                                    if(data == true){
+                                        toastr.success('Mail sent successfully');
+                                    }
+                                    else{
+                                        toastr.error('Mail did not send successfully');
+                                    }
+                                 },
+                                 error: function(request,error){
+                 
+                                     console.log(error);
+                                 }
+                             })
+
+                        }
+                        function giveRating(missionId,rating){
+                            $(".rtcolor").removeClass("text-warning");
+                            PostRating(rating, missionId);
+                        }
+                        function PostRating(i,missionId){
+                            $.ajax({
+                                type : "POST",
+                                url : "/Mission/PostRating",
+                                data :{
+                                    'rate' : i,
+                                    'MissionId' : missionId
+                                },
+                                success:(data) => {
+                                    if(data == 1){
+                                        location.reload();
+                                        toastr.success('Your rating updated successfully');
+                                    }
+                                    else if(data == 0){
+                                        toastr.error('First apply for the mission');
+                                    }
+                                    else if(data == 2){
+                                        toastr.info('Please wait for application approve');
+                                    }
+                                }
+                            })
+                        }
+
+                    function AddToRecent(missionId, userId)
+                                        {
+                                
+                                        $.ajax({
+                                        url:"/Mission/AddToRecentVolunteer",
+                                        method: "POST",
+                                        data:
+                                            {
+                                            userId : userId,
+                                            missionId:missionId
+                                            },
+                                            success:function(data)
+                                            {
+                                            console.log("success");
+                                            $("#volunteer-status").html("Request sent for approvel");
+                                             $("#volunteer-status").css("color","green");
+                                             $("#applied").text("Applied!");
+                                             $("#apply").addClass("disabled!");
+                                            
+                                            }
+                                            });
+                                }
+                                function VolunteersPaging(paging, mission_id, total){
+                                    if(paging == "prev"){
+                                        if(currnt_page > 0){
+                                            $.ajax({
+                                                url : "/Mission/VolunteerPaging",
+                                                method : "POST",
+                                                data : {
+                                                    "mission_id" : mission_id,
+                                                    "paging" : current_page - 1
+                                                },
+                                                success : function(data){
+                                                    $(".recent-volunteers").html(data);
+                                                },
+                                                error : function(request, error){
+                                                    consle.log(error);
+                                                }
+                                            })
+                                            current_page--;
+                                        }
+                                    }
+                                    else{
+                                        if(current_page+1 < total){
+                                            $.ajax({
+                                                url : "/Mission/VolunteerPaging",
+                                                method : "POST",
+                                                data :{
+                                                    "mission_id" : mission_id,
+                                                    "paging" : current_page + 1
+                                                },
+                                                success : function(data){
+                                                    $(".recent-volunteers").html(data);
+                                                },
+                                                error:function(request,error){
+                                                    console.log(error);
+                                                }
+                                            })
+                                            current_page++;
+                                        }
+                                    }
+                                }
+
+                    </script>
+                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>  
+
+}

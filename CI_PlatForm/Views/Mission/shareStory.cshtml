@@ -1,0 +1,164 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @Html.Partial("_TopNav")
+    <div class="container">
+        <h1>Share Your Story</h1>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-12">
+                <label for="SelectMission">Select Mission</label>
+                <select class="dropdown-toggle w-100 mt-2" type="button" id="SelectMission" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="height:34px;border-radius:5px;border-color:lightgray;" required>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <option class="dropdown-item" href="#" selected>Select your Mission</option>
+                    @foreach(var objMission in @ViewBag.missionStory)
+                     {
+                      <option class="dropdown-item" href="#"  id="@objMission.MissionId">@objMission.Title</option> 
+                      }
+                  </div>
+                  </select>
+               </div> 
+                <div class="col-lg-4 col-md-4 col-12">
+                <div class="mb-3">
+                <label for="StoryTitle" class="form-label">My Story Title</label>
+                <input type="text" class="form-control" id="StoryTitle" required>
+               </div>
+               </div>
+           <div class="col-lg-4 col-md-4 col-12">
+            <div class="mb-3">
+                <label for="StoryDate" class="form-label">Date</label>
+                <input type="date" class="form-control" id="StoryDate" required>
+               </div>
+           </div>
+            </div>
+          
+       </div>
+    
+      <div class="container">
+        <div class="form-group">
+           <label for="storytext">My Story</label>
+             <div class="p-1 border">
+                <div class="d-flex">
+                    <i class="bi bi-type-bold p-1" id="bold"></i>
+                    <i class="bi bi-type-italic p-1"></i>
+                    <div class="vr"></div>
+                    <i class="bi bi-subscript p-1"></i>
+                    <i class="bi bi-superscript p-1"></i>
+                </div>
+            </div>
+            <textarea class="form-control" id="storytext" rows="3" placeholder="Sample Editor 1" required></textarea>
+         </div>
+       </div>
+     
+       <div class="container">
+       <div class="row">
+          <div class="mb-3 py-3">
+          <label for="VideoURL" class="form-label">Enter Video URL</label>
+          <input type="url" class="form-control" id="VideoURL" placeholder="Enter your url">
+        </div>
+        </div>
+       </div>
+       <div class="container">
+       <label for="dragDrop">Upload Your Photos</label>
+       <div class="border text-center p-3">
+       <img src="/Images/CI Platform Assets/drag-and-drop.png">
+       <input id="imageupload" type="file" class="file" multiple="multiple" accept="image/jpeg,imge/png,image/jpg">
+       <div class = "d-flex">
+       <output id="preview"></output>
+       </div>
+       </div>
+       </div>
+       @*<div class="container">
+       <div class="row">
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/img1.png" class="h-100 w-100">
+       </div>
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/Grow-Trees-On-the-path-to-environment-sustainability-4.png" class="h-100 w-100">
+       </div>
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/img33.png" class="h-100 w-100">
+       </div>
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/img33.png" class="h-100 w-100">
+       </div>
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/img.png" class="h-100 w-100">
+       </div>
+       <div class="col-1 my-5">
+       <img src="/Images/CI Platform Assets/img.png" class="h-100 w-100">
+       </div>
+       
+       </div>
+       </div>*@
+       <div class="container">
+       <div class="row p-3">
+       <div class="col-3">
+       <button type="button" class="btn btn-outline-secondary border rounded-pill">Cancel</button>
+       </div>
+       <div class="col-9 justify-content-end d-flex">
+       <button type="button" class="btn btn-outline-warning border rounded-pill mx-2">Save</button>
+       <button type="button" class="btn btn-outline-warning border rounded-pill mx-2">Submit</button>
+       </div>
+       </div>
+       </div>
+       <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                                                        <ul class="col-lg-6 col-md-6 list-unstyled d-flex nav">
+                                                            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Privacy Policy</a></li>
+                                                            </ul>
+                                                   </footer>
+                                                   </div>
+         <script>
+         tinymce.init({
+         selector : '#storytext',
+         plugins : 'link image code',
+         toolbar : 'bold italic strikethrough | superscript subscript removeformat',
+         height : 300 });
+         const inputDiv = document.querySelector(".input-div")
+         const input = document.querySelector("#imageupload")
+         const output = document.querySelector("#preview")
+         let imagesArray = []
+         input.addEventListener("change",() => {
+             const files = input.files
+             for(let i = 0; i < files.length; i++){
+                 imagesArray.push(files[i])
+             }
+             displayImages()
+             })
+             inputDiv.addEventListener("drop", () => {
+                 e.preventDefault()
+                 const files = e.dataTransfer.files
+                 for(let i = 0; i < files.length; i++){
+                    if(!files[i].type.match("image")) continue;
+                    if(imagesArray.every(image => image.name !== files[i].name))
+                    imagesArray.push(files[i])
+                 }
+                 displayImages()
+                    })
+                    function displayImages(){
+                    let images = ""
+                    imagesArray.forEach(image,index) => {
+                    images += `<div class = "image storyimages">
+                    <img src = "$(URL.createObjectURL(image)}"
+                    alt="image">
+                    <span onclick = "deleteImage(${index})">&times;</span>
+                    </div>`
+                    })
+                    output.innerHTML = images
+                    }
+                    function deleteImage(index){
+                    imagesArray.splice(index,1)
+                    displayImages()
+                    }
+                    </script>
+           <script src="https://cdn.tiny.cloud/1/your-tinymce-apikey/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                                    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                                    crossorigin="anonymous"></script>
+}

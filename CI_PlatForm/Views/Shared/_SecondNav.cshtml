@@ -1,0 +1,101 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    <div class="container">
+                        <div class="row py-0">
+                            <div class="col-lg-6 col-12">
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Search Mission..." oninput="searchMission()" name="search">
+                                </div>
+                    
+                            </div>
+                            <div class="col-lg-6 col-12 ">
+                  <div class="row ">
+                    <div class="col-lg-3 col-3">
+
+
+
+                        <div class="form-select d-flex align-items-center   hide_border_select border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Country
+                        </div>
+
+                        <ul class="dropdown-menu scroll_dropdown " onchange="GetCity();searchMission();">
+
+                            @foreach (var obj in @ViewBag.CountryList)
+                            {
+                                <li>
+                                    <div class="form-check dropdown-item px-2">
+                                        <input class="form-check-input mx-auto" type="checkbox" name="country"
+                                           id="@obj.CountryId" />
+                                        <label class="form-check-label ps-2" for="@obj.CountryId">
+                                            @obj.CountryName
+                                        </label>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                     </div>
+                   <div class="col-lg-3 col-3">
+                                    <div class="form-select select-menu border-lg-left border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        City
+                                    </div>
+                                     <ul class="dropdown-menu scroll_dropdown" id="selectCityList" onchange="searchMission()"  name="city">
+                                     </ul>
+                                    </div>
+                                    
+                                    <div class="col-lg-3 col-3">
+                                      
+                        <div class="form-select d-flex align-items-center   hide_border_select border-0"
+                             type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Theme
+                        </div>
+
+                        <ul class="dropdown-menu scroll_dropdown " onchange="searchMission();">
+
+                            @foreach (var obj in @ViewBag.missionTheme)
+                            {
+                                <li>
+                                    <div class="form-check dropdown-item px-2">
+                                        <input class="form-check-input mx-auto" type="checkbox" name="theme"
+                                           id="@obj.MissionThemeId" />
+                                        <label class="form-check-label ps-2" for="@obj.MissionThemeId">
+                                            @obj.Title
+                                        </label>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                     </div>
+                   <div class="col-lg-3 col-3">
+                                      
+                          <div class="form-select d-flex align-items-center   hide_border_select border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Skill
+                           </div>
+
+                           <ul class="dropdown-menu scroll_dropdown " onchange="searchMission();">
+
+                            @foreach (var obj in @ViewBag.skillList)
+                            {
+                                <li>
+                                    <div class="form-check dropdown-item px-2">
+                                        <input class="form-check-input mx-auto" type="checkbox" name="skill"
+                                           id="@obj.SkillId" />
+                                        <label class="form-check-label ps-2" for="@obj.SkillId">
+                                            @obj.SkillName
+                                        </label>
+                                    </div>
+                                </li>
+                            }
+                              </ul>
+                               
+
+                                    </div>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+}

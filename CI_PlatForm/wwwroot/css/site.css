@@ -1,0 +1,81 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    #profile {
+        display: none;
+    }
+
+    #Profile-dropdown {
+        display: none;
+    }
+}
+
+@media screen and (min-width:900px) {
+    #search {
+        display: none;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.trees {
+    border: solid;
+    border-radius: 20px;
+    text-align: center;
+    padding: 2px;
+    width: fit-content;
+    margin: auto;
+    margin-top: -35px;
+    border-color: lightgray;
+    background-color: white;
+}
+
+.star {
+    border: solid;
+    width: fit-content;
+    margin: auto;
+    border-color: white;
+    background-color: white;
+    margin-top: -33px;
+}
+
+.storyImg {
+    opacity: 50%;
+}
+
+@media screen and (max-width:900px) {
+    #list {
+        display: none;
+    }
+
+    #grid {
+        display: none;
+    }
+}
+
+.cardImg:is(:hover) {
+    opacity: 50%;
+}
+
+.button {
+    visibility: hidden;
+}
+
+    .button:is(:hover) {
+        visibility: visible;
+    }
+
+/*body {
+  margin-bottom: 60px;
+}*/

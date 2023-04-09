@@ -1,0 +1,145 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+                                   @foreach(var objcard in @ViewBag.cardDetail)
+                                      {
+                                        <div class="container py-2">
+                                            <div class="card">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-md-4">
+                                                       <div class="card h-100">
+                                                       <img src="/Images/CI Platform Assets/@objcard.MediaName" class="card-img-top h-100 position-relative" alt="...">
+                                                       
+                                                       <div class="card-img-overlay d-flex flex-column align-items-end">
+                                                          <div>
+                                                              <button type="button" class="bg-dark text-white bg-opacity-bg-opacity-50"><i class="bi bi-geo-alt"></i><span id="@objcard.CityId">@objcard.CityName</span></button>
+                                                          </div>
+                                                          <div>
+                                                            
+                                                             @if (@objcard.checkFav == true)
+                                                            {
+                                                                <button type="submit" class="bg-dark text-white bg-opacity-50" onclick="AddMissionToFav(@objcard.MissionId)"><i style="color:red" class="bi bi-heart-fill" id="addtofavList_@objcard.MissionId"></i></button>
+                                                            }
+                                                            else
+                                                            {
+                                                                <button type="submit" class="bg-dark text-white bg-opacity-50" onclick="AddMissionToFav(@objcard.MissionId)"><i style="color:white" class="bi bi-heart" id="addtofavList_@objcard.MissionId"></i></button>
+                                                            }
+                                                         </div>
+                                                         <div>
+                                                              <button type="button" class="bg-dark text-white bg-opacity-bg-opacity-50" ><i class="bi bi-people"></i></button>
+                                                         </div>
+                                                    </div>
+                                                   <div class="card img-overlay d-flex align-items-center justify-content-center" >
+                                                        <div class="rounded-pill bg-light position-absolute text-center p-2 small" id="@objcard.MissionId">@objcard.Theme</div>
+                                                    </div>
+                                                 </div>
+                                                </div>
+                                                    <div class="card-body col-lg-8 col-md-8">
+                                                        <h5 class="Card Title"> @objcard.Title</h5>
+                                                        <p class="card-text">@objcard.ShortDescription</p>
+                                                        <div class="row text-muted small">
+                                                        <div class=" col-lg-6  col-md-6 col-6">
+                                                        <div class="col-lg-6 col-md-6 col-6 d-flex">
+                                                        @objcard.OrganizationName</div>
+                                                        <div class="col-lg-6 col-md-6 col-6 d-flex">
+                                                        
+                                                               @for (var i = 0; i < (@objcard.Rating); i++)
+                                                                    {
+                                                                        <i class="bi bi-star-fill checked"></i>
+                                                                    }  
+                                                               @for (var i = 0; i < 5 - (@objcard.Rating); i++)
+                                                                     {
+                                                                        <i class="bi bi-star"></i>
+                                                                     }       
+                                                             
+                                                               <div class="container">
+                                                                  <span id="rateMe2"  class="empty-stars"></span>
+                                                                </div>
+
+                                                                <!-- rating.js file -->
+                                                                <script>$(document).ready(function() {
+                                                                  $('#rateMe2').mdbRate();
+                                                                });
+                                                                </script>
+                                                                </div>
+                                                                    <div>
+                                                                    <div class="mt-3">
+                                                                    <a asp-controller="Mission" asp-action="MissionVolunteering" asp-route-id = "@objcard.MissionId">
+                                                                    <button type="button bg-light" class="btn btn-outline-warning border rounded-pill">Apply</button>
+                                                            </a>    
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-6">
+                                                        <div class="border rounded-pill text-center px-4">
+                                                        From @objcard.StartDate.ToString("dd/MM/yyyy") until @objcard.EndDate.ToString("dd/MM/yyyy")</div>
+                                                        <div class="row">
+                                                        <div class="cols-lg-6 col-md-6 col-6">
+                                                        <div class="d-flex">
+                                                                        <div class="py-1"><i class="bi bi-person-check py-1"></i>&nbsp;&nbsp;
+                                                                        </div>
+                                                                        <div>@objcard.Avaibility
+                                                                            <div>Seats left</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                        <div class="col-lg-6 col-md-6 col-12">
+                                                                     <div class="d-flex">
+                                                                        <div class="py-1"><i class="bi bi-clock py-1"></i>&nbsp;&nbsp;</div>
+                                                                        <div>@objcard.EndDate.ToString("dd/MM/yyyy")
+                                                                            <div>Deadline</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
+                                                                   </div>
+                                                                </div>
+                                                               </div>
+                                                              </div>
+                                                             </div>
+                                                            </div>
+                                                           </div>
+                                      }
+                                       <script> 
+                                                 function AddMissionToFav(missionId){
+                      
+                                                   $.ajax({
+                                                    url: "/Mission/AddMissionToFav",
+                                                    method : "POST",
+
+                                                    data:{
+                                                        "missionId" : missionId
+                                                    },
+                                                    success: function (missions){
+                                                        console.log(missions)
+                                                        if (missions == true){
+                                                            console.log('addtofav output:'.missions);
+                                                            $('#addtofav_' + missionId).removeClass();
+                                                            $('#addtofav_' + missionId).addClass("bi bi-heart-fill");
+                                                            $('#addtofav_' + missionId).css("color","red");
+                                                            /*----------------List---------------------*/
+                                                            $('#addtofavList_' + missionId).removeClass();
+                                                            $('#addtofavList_' + missionId).addClass("bi bi-heart-fill");
+                                                            $('#addtofavList_' + missionId).css("color","red");
+                                                            toastr.success('Add to Favourite successfully');
+                                                        }
+                                                        else{
+                                                            $('#addtofav_' + missionId).css("color","white");
+                                                            $('#addtofav_' + missionId).removeClass();
+                                                            $('#addtofav_' + missionId).addClass("bi bi-heart");
+                                                            /*------------List-----------------------------*/
+                                                            $('#addtofavList_' + missionId).css("color","white");
+                                                            $('#addtofavList_' + missionId).removeClass();
+                                                            $('#addtofavList_' + missionId).addClass("bi bi-heart");
+                                                            toastr.success('Remove from Favourite successfully');
+                                                        }
+                                                    },
+                                                    error: function (request, error){
+                                                        console.log(error);
+                                                    }
+                                                })
+                                            }
+                                            </script>
+
+
+}
