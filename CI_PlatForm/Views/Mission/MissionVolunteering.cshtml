@@ -281,7 +281,7 @@
                                                  
                                                  @for (var i = 0; i < (@ViewBag.getRating); i++)
                                                  {
-                                                 <label class="rtcolor checked" style="color: #F8D441; border-color: black" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">&#9733;</label>
+                                                 <label class="rtcolor checked" style="color: #F8D441; border-color: blue" id="rating_@i" onclick="giveRating(@ViewBag.cardData.MissionId,@i)">&#9733;</label>
                                                  }  
                                                  @for (int i = (@ViewBag.getRating) + 1; i <= 5; i++)
                                                  {

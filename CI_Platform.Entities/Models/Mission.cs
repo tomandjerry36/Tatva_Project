@@ -25,7 +25,7 @@ public partial class Mission
 
     public bool MissionType { get; set; }
 
-    public int? Status { get; set; }
+    public bool? Status { get; set; }
 
     public string? OrganizationName { get; set; }
 
@@ -35,7 +35,7 @@ public partial class Mission
 
     public DateTime CreatedAt { get; set; }
 
-    public DateTime UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
 

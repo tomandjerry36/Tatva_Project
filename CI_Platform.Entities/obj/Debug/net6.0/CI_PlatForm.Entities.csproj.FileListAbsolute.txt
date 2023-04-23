@@ -1,5 +1,5 @@
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.deps.json
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.runtimeconfig.json
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.deps.json
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.runtimeconfig.json
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\bin\Debug\net6.0\CI_PlatForm.Entities.pdb
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\CI_PlatForm.Entities.csproj.AssemblyReference.cache
@@ -10,5 +10,5 @@ D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\CI_PlatForm.Entities.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\refint\CI_PlatForm.Entities.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\CI_PlatForm.Entities.pdb
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\CI_PlatForm.Entities.genruntimeconfig.cache
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Entities\obj\Debug\net6.0\ref\CI_PlatForm.Entities.dll
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Entities\obj\Debug\net6.0\CI_PlatForm.Entities.genruntimeconfig.cache
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Entities\obj\Debug\net6.0\ref\CI_PlatForm.Entities.dll

@@ -196,7 +196,7 @@ namespace CI_PlatForm.Controllers
                 _MissionRepository.AddToRecent(missionId, userId);
             }
         }
-        public ActionResult Voluntee‎rPaging(int paging, long mission_id)
+        public ActionResult VolunteerPaging(int paging, long mission_id)
         {
             double total_pages = Math.Ceiling(_MissionRepository.GetRecentUser(mission_id).Count() / 9.0);
             if(paging > 0 && paging <= total_pages)
@@ -261,7 +261,7 @@ namespace CI_PlatForm.Controllers
         {
             ViewBag.sessionValue = HttpContext.Session.GetString("username");
             long userId = (long)Convert.ToInt64(HttpContext.Session.GetString("userId"));
-            ViewBag.missionStoryList = _MissionRepository.getStoryMission(userId);
+            ViewBag.missionStory = _MissionRepository.getStoryMission(userId);
 
             return View();
         }
@@ -272,7 +272,7 @@ namespace CI_PlatForm.Controllers
             
             long userId = (long)Convert.ToInt64(HttpContext.Session.GetString("userId"));
            _MissionRepository.AddStory(model, userId, submit);
-            ViewBag.missionStoryList = _MissionRepository.getStoryMission(userId);
+            ViewBag.missionStory = _MissionRepository.getStoryMission(userId);
             return View("ShareStory");
         }
         public IActionResult StoryDetail(long id)

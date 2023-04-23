@@ -1,5 +1,5 @@
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.deps.json
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.runtimeconfig.json
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.deps.json
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.runtimeconfig.json
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\bin\Debug\net6.0\CI_PlatForm.Repository.pdb
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\bin\Debug\net6.0\CI_PlatForm.Entities.dll
@@ -9,9 +9,9 @@ D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.AssemblyInfoInputs.cache
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.AssemblyInfo.cs
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.csproj.CoreCompileInputs.cache
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.csproj.CopyComplete
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.csproj.CopyComplete
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\refint\CI_PlatForm.Repository.dll
 D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.pdb
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.genruntimeconfig.cache
-D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_Platform.Repository\obj\Debug\net6.0\ref\CI_PlatForm.Repository.dll
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Repository\obj\Debug\net6.0\CI_PlatForm.Repository.genruntimeconfig.cache
+D:\Tatvasoft Project files\(Nan-3)_CI_PlatForm-master - Copy\CI_PlatForm-master\CI_PlatForm.Repository\obj\Debug\net6.0\ref\CI_PlatForm.Repository.dll

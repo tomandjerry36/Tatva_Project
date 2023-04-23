@@ -841,7 +841,7 @@ public partial class CiplatformContext : DbContext
                 .HasColumnName("first_name");
             entity.Property(e => e.LastName)
                 .HasMaxLength(16)
-                .IsUnicode(false)
+                .IsUnicode(false) 
                 .HasColumnName("last_name");
             entity.Property(e => e.LinkedInUrl)
                 .HasMaxLength(255)
